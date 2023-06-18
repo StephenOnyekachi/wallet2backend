@@ -1,23 +1,13 @@
-from django.shortcuts import render
-
-from django.contrib.auth.models import User
 from django.contrib import messages
 from django.shortcuts import render, redirect
-
+from .models import Users,Wallet,Payment,Message
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 
-from .models import Users
-from .models import Payment
-from .models import Wallet
-from .models import Message
-from .models import W_history
-
-# Create your views here.
 
 def index(request):
     context = {
-
+        
     }
     return render(request, 'index.html', context)
 
@@ -29,22 +19,24 @@ def usersignup1(request):
         password1 = request.POST['password1']
         password2 = request.POST['password2']
         if password1 == password2:
-            if Users.objects.filter(username=username).exists():
-                messages.info(request, 'Username taken')
+            username_exists = Users.objects.filter(username=username).exists()
+            email_exists = Users.objects.filter(email=email).exists()
+
+            if username_exists or email_exists:
+                if username_exists:
+                    messages.info(request, 'Username taken')
+                if email_exists:
+                    messages.info(request, 'Email taken')
                 return redirect('usersignup1')
-            elif Users.objects.filter(email=email).exists():
-                messages.info(request, 'email taken')
-                return redirect('usersignup1')
-            else:
-                user = Users.objects.create_user(username=username, email=email, password=password1, number=number)
-                messages.success(request, 'account was created successfully')
-                user.save()
-                return redirect('userlogin2')
-        else:
-            messages.info(request, 'password not matching...')
-            return redirect('usersignup1')
+            user = Users.objects.create_user(username=username, email=email, password=password1, number=number)
+            messages.success(request, 'account was created successfully')
+            user.save()
+            return redirect('userlogin2')
+        messages.info(request, 'password not matching...')
+        return redirect('usersignup1')
     context = {}
     return render(request, 'usersignup1.html', context)
+
 
 def userlogin(request):
     if request.method == 'POST':
@@ -55,27 +47,23 @@ def userlogin(request):
             if user.is_superuser:
                 login(request, user)
                 return redirect('adminpage')
-            else:
-                login(request, user)
-                return redirect('dashboard')
-        else:
-            return redirect('userlogin')
-            # messages.info(request, 'username or password is incorrect')
-    context = {}
-    return render(request, 'userlogin.html', context)
+            login(request, user)
+            return redirect('dashboard')
+        messages.info(request, 'username or password is incorrect')
+        return redirect('userlogin')
+    return render(request, 'userlogin.html')
+
 
 def adminpage(request):
     return render(request, 'adminpage.html')
 
 def dashboard(request):
-
-    user = Users.objects.get(username=request.user)
-
+    user = request.user
     context = {
         'user': user,
     }
-
     return render(request, 'dashboard.html', context)
+
 
 def deposit(request):
 
@@ -88,6 +76,8 @@ def deposit(request):
     }
 
     return render(request, 'deposit.html', context)
+
+
 
 def edithprofile(request, pk):
     user = Users.objects.get(id=pk)
@@ -111,6 +101,8 @@ def edithprofile(request, pk):
         'user': user,
     }
     return render(request, 'edithprofile.html', context)
+
+
 
 def messagedelete(request, pk):
     message = Message.objects.get(id=pk)
@@ -140,7 +132,7 @@ def message(request):
     }
     return render(request, 'message.html', context)
 
-def messages(request):
+def messagesView(request):
 
     message = Message.objects.all().order_by('-id')
     context = {
