@@ -1,0 +1,54 @@
+
+{% load static %}
+{% static "medians" as baseUrl %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>userblock</title>
+
+    <link rel="icon" href="{% static 'static/img/005.jpg' %}">
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'font-awesome/css/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/css.css' %}">
+    <link rel="stylesheet" href="{% static 'css/media.css' %}">
+    <link rel="stylesheet" href="{% static 'js/jquery-3.7.0.js' %}">
+    <link rel="stylesheet" href="{% static 'js/js.js' %}">
+
+</head>
+<body>
+    <div class="">
+
+        <div class="col-md-12 deposite">
+            <div class="col-md-12 deposite1">
+                <div style="padding: 15px;">
+                    <a href="{% url 'adminpage' %}" style="color: white; border: 1px solid gold; border-radius: 5px; padding: 5px;">
+                        <i class="fa fa-mail-reply"> Back</i>
+                    </a>
+                </div>
+
+                <div class="col-md-12 dobox" style="margin-top: 10px;">
+                    <div class="table" style="height: 400px; overflow-y: scroll;">
+
+                        {% for message in message %}
+                            <a href="{% url 'message' %}">
+                                <div style="background-color: rgb(68, 68, 68);padding: 10px; color: white; margin: 5px;">
+                                    <span>{{message.sender.username}}</span>
+                                    <p>
+                                        {{message.message}}
+                                    </p>
+                                    <h6>{{message.date}}</h6>
+                                </div>
+                            </a>
+                        {% endfor %}
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>

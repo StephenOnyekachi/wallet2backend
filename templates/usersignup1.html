@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>signup</title>
+
+    <link rel="icon" href="static/img/005.jpg">
+    <link rel="stylesheet" href="static/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="static/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="static/css/css.css">
+    <link rel="stylesheet" href="static/css/media.css">
+    <link rel="stylesheet" href="static/js/jquery-3.7.0.js">
+    <link rel="stylesheet" href="static/js/js.js">
+
+    <style>
+        .signup{
+            background-image: url("static/img/006.png");
+            height: 120vh;
+            background-size: cover;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="col-md-12 signup">
+        <div class="col-md-12 signupbg">
+            <div class="col-md-12 containt">
+                <h2>
+                    fill in the spaces
+                </h2>
+                <div class="col-md-12">
+                    <form method="POST">
+
+                        {% csrf_token %}
+
+                        <div class="col-md-12">
+                            <label for="">
+                                User Name
+                            </label>
+                            <br>
+                            <input type="text" placeholder="enter your full name" name="name">
+                        </div>
+                        <div class="col-md-12">
+                            <label for="">
+                                User Email
+                            </label>
+                            <br>
+                            <input type="email" placeholder="enter your email" name="email">
+                        </div>
+                        <div class="col-md-12">
+                            <label for="">
+                                User Phone Number
+                            </label>
+                            <br>
+                            <input type="number" placeholder="enter your phone number" name="number">
+                        </div>
+                        <div class="col-md-12">
+                            <label for="">
+                                Password
+                            </label>
+                            <br>
+                            <input type="password" placeholder="create password" name="password1">
+                        </div>
+                        <div class="col-md-12">
+                            <label for="">
+                                Comfairm Password
+                            </label>
+                            <br>
+                            <input type="password" placeholder="confairm password" name="password2">
+                        </div>
+                        <div class="col-md-12">
+                            <button>Next</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            {% for message in messages %}
+                <div style="color:white;box-shadow:0 2px 3px white;padding:15px">
+                    <p>{{message}}</p>
+                </div>
+            {% endfor %}
+
+        </div>
+    </div>
+</body>
+</html>

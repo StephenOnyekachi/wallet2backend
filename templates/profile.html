@@ -1,0 +1,120 @@
+
+{% load static %}
+{% static "medians" as baseUrl %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>profile</title>
+
+    <link rel="icon" href="{% static 'static/img/005.jpg' %}">
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'font-awesome/css/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/css.css' %}">
+    <link rel="stylesheet" href="{% static 'css/media.css' %}">
+    <link rel="stylesheet" href="{% static 'js/jquery-3.7.0.js' %}">
+    <link rel="stylesheet" href="{% static 'js/js.js' %}">
+
+</head>
+<body>
+    <div class="">
+        <div class="col-md-12 dashboard">
+            <div class="col-md-12">
+                <div class="col-md-6">
+                    <h1>
+                        Welcome {{request.user}}
+                    </h1>
+                    <div>
+                        <a href="{% url 'dashboard' %}" style="color: white; border: 1px solid gold; border-radius: 5px; padding: 5px;">
+                            <i class="fa fa-mail-reply"> Back</i>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-6 picture">
+                    {% if user.picture %}
+                        <a href="">
+                            <img src="{{user.picture.url}}" alt="">
+                        </a>
+                    {% else %}
+                        <a href="">
+                            <img src="{% static 'img/005.jpg' %}" alt="">
+                        </a>
+                    {% endif%}
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-12 profilebody">
+            <div class="col-md-12 profilebody1">
+                <div class="user">
+                    <span>
+                        name
+                    </span>
+                    <h3>
+                        {{user.username}}
+                    </h3>
+                </div>
+                <div class="user">
+                    <span>
+                        email
+                    </span>
+                    <h3>
+                        {{user.email}}
+                    </h3>
+                </div>
+                <div class="user">
+                    <span>
+                        phone number
+                    </span>
+                    <h3>
+                        {{user.number}}
+                    </h3>
+                </div>
+                <div class="user">
+                    <span>
+                        country
+                    </span>
+                    <h3>
+                        {{user.country}}
+                    </h3>
+                </div>
+                <div class="user">
+                    <span>
+                        city
+                    </span>
+                    <h3>
+                        {{user.city}}
+                    </h3>
+                </div>
+                <div class="user">
+                    <span>
+                        address
+                    </span>
+                    <h3>
+                        {{user.address}}
+                    </h3>
+                </div>
+                <div class="user">
+                    <span>
+                        gender
+                    </span>
+                    <h3>
+                        {{user.gender}}
+                    </h3>
+                </div>
+                <div class="user">
+                    <span>
+                        occupation
+                    </span>
+                    <h3>
+                        {{user.occupation}}
+                    </h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

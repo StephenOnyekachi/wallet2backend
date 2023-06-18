@@ -1,0 +1,191 @@
+
+{% load static %}
+{% static "medians" as baseUrl %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>home</title>
+
+    <link rel="icon" href="{% static 'static/img/005.jpg' %}">
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'font-awesome/css/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/css.css' %}">
+    <link rel="stylesheet" href="{% static 'css/media.css' %}">
+    <link rel="stylesheet" href="{% static 'js/jquery-3.7.0.js' %}">
+    <link rel="stylesheet" href="{% static 'js/js.js' %}">
+
+<!--    {% block comment %}-->
+<!--    {% endblock %}-->
+
+</head>
+<body>
+    <div class="">
+        <div class="col-md-12 menubar">
+            <a href="">
+                <img src="static/img/005.jpg" alt="">
+                <label for="">Lynn <i style="color: rgb(255, 41, 244);">Tech</i></label>
+            </a>
+        </div>
+        <div class="col-md-12 body">
+            <div class="col-md-12 body1">
+                <h1>Over 500k plus</h1>
+                <h3>Number one most trusted investment, company in the world</h3>
+                <div class="col-md-12 body2">
+                    <div class="col-md-6 body3">
+                        <a href="{% url 'userlogin' %}">
+                            Login
+                        </a>
+                    </div>
+                    <div class="col-md-6 body3">
+                        <a href="{% url 'usersignup1' %}">
+                            Sign Up
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-12 honor">
+                <h3>Honors</h3>
+                <div class="col-md-12 honor1">
+                    <div class="col-md-4">
+                        <div class="honor2">
+                            <i class="fa fa-users"></i>
+                            <p>users</p>
+                            <h2>
+                                400k
+                            </h2>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="honor2">
+                            <i class="fa fa-diamond"></i>
+                            <p>partnership</p>
+                            <h2>
+                                100
+                            </h2>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="honor2">
+                            <i class="fa fa-certificate"></i>
+                            <p>Award</p>
+                            <h2>
+                                10
+                            </h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-12 social">
+            <div class="col-md-4">
+                <h3 id="socail">social</h3>
+                <div class="web">
+                    <a href="">
+                        <i class="fa fa-facebook"></i>
+                    </a>
+                    <a href="">
+                        <i class="fa fa-google"></i>
+                    </a>
+                    <a href="">
+                        <i class="fa fa-twitter"></i>
+                    </a>
+                    <a href="">
+                        <i class="fa fa-instagram"></i>
+                    </a>
+                    <a href="">
+                        <i class="fa fa-youtube"></i>
+                    </a>
+                    <a href="">
+                        <i class="fa fa-linkedin"></i>
+                    </a>
+                    <p>
+                        follow us for our diffrent social media if you have not.
+                    </p>
+                </div>
+                <div class="col-md-12 staff">
+                    <h3 style="text-transform: uppercase; padding: 10px;">
+                        staffs
+                    </h3>
+                    <div class="col-md-4">
+                        <img src="{% static 'img/001.jpeg' %}" alt="">
+                        <h3>name</h3>
+                        <p>position</p>
+                    </div>
+                    <div class="col-md-4">
+                        <img src="{% static 'img/001.jpeg' %}" alt="">
+                        <h3>name</h3>
+                        <p>position</p>
+                    </div>
+                    <div class="col-md-4">
+                        <img src="{% static 'img/001.jpeg' %}" alt="">
+                        <h3>name</h3>
+                        <p>position</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <h3 id="socail">Our services</h3>
+                <div class="service">
+                    <div class="col-md-6">
+                        <p>
+                            digital marketting
+                        </p><br>
+                        <p>
+                            branding
+                        </p><br>
+                        <p>
+                            investement
+                        </p><br>
+                        <p>
+                            trading
+                        </p><br>
+                    </div>
+                    <div class="col-md-6">
+                        <p>
+                            networking
+                        </p><br>
+                        <p>
+                            estate management
+                        </p><br>
+                        <p>
+                            travel trip
+                        </p><br>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <h3 id="socail">terms and policy</h3>
+                <div class="service">
+                    <div class="col-md-12">
+                        <p>
+                            no fraud, contact admin <br> allows reports
+                        </p>
+                    </div>
+                    <div class="col-md-12">
+                        <form action="">
+                            <div>
+                                <input type="text" placeholder="your name" name="name">
+                            </div>
+                            <div>
+                                <input type="email" name="email" placeholder="enter your email">
+                            </div>
+                            <div>
+                                <textarea name="note"></textarea>
+                            </div>
+                            <div>
+                                <button>Send</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

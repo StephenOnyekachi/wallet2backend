@@ -1,0 +1,87 @@
+
+{% load static %}
+{% static "medians" as baseUrl %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>daposite</title>
+
+    <link rel="icon" href="{% static 'static/img/005.jpg' %}">
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'font-awesome/css/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/css.css' %}">
+    <link rel="stylesheet" href="{% static 'css/media.css' %}">
+    <link rel="stylesheet" href="{% static 'js/jquery-3.7.0.js' %}">
+    <link rel="stylesheet" href="{% static 'js/js.js' %}">
+
+</head>
+<body>
+    <div class="">
+
+        <div class="col-md-12 deposite">
+            <div class="col-md-12 deposite1">
+                <div style="padding: 15px;">
+                    <a href="{% url 'dashboard' %}" style="color: white; border: 1px solid gold; border-radius: 5px; padding: 5px;">
+                        <i class="fa fa-mail-reply"> Back</i>
+                    </a>
+                </div>
+                <div class="col-md-12 dobox">
+                    <div class="table">
+                        <table>
+                            <div class="col-md-12">
+                                <tr class="theader">
+                                    <td>Address</td>
+                                    <td>Pacentage</td>
+                                    <td>Total</td>
+                                </tr>
+                            </div>
+                            <div class="col-md-12">
+                                {% for payment in payment %}
+                                    <tr class="tbody">
+                                        <td>{{payment.price}}</td>
+                                        <td>{{payment.percentage}}</td>
+                                        <td>{{payment.total}}</td>
+                                    </tr>
+                                {% endfor %}
+                            </div>
+                        </table>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="payment">
+                        <h3>make payment</h3>
+                        <div class="col-md-12">
+                            <table>
+                                <div class="col-md-12">
+                                    <tr class="theader">
+                                        <td>Address</td>
+                                        <td>Address Type</td>
+                                        <td>copy</td>
+                                    </tr>
+                                </div>
+                                {% for wallet in wallet %}
+                                    <div class="col-md-12">
+                                        <tr class="tbody">
+                                            <td>{{wallet.address}}</td>
+                                            <td>{{wallet.type}}</td>
+                                            <td>
+                                                <button class="copy-btn" data-hex="{{wallet.address}}" style="background-color:inherit;border:none;">
+                                                    <i class="fa fa-clone"> copy</i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    </div>
+                                {% endfor %}
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,60 @@
+
+{% load static %}
+{% static "medians" as baseUrl %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>userdelete</title>
+
+    <link rel="icon" href="{% static 'static/img/005.jpg' %}">
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'font-awesome/css/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/css.css' %}">
+    <link rel="stylesheet" href="{% static 'css/media.css' %}">
+    <link rel="stylesheet" href="{% static 'js/jquery-3.7.0.js' %}">
+    <link rel="stylesheet" href="{% static 'js/js.js' %}">
+
+</head>
+<body>
+    <div class="">
+
+        <div class="col-md-12 deposite">
+            <div class="col-md-12 deposite1">
+                <div style="padding: 15px;">
+                    <a href="{% url 'user' user.id %}" style="color: white; border: 1px solid gold; border-radius: 5px; padding: 5px;">
+                        <i class="fa fa-mail-reply"> Back</i>
+                    </a>
+                </div>
+                <div class="col-md-12 dobox">
+                    <div class="table">
+                        <form method="POST" action="" class="edit">
+
+                            {% csrf_token %}
+
+                            <div class="col-md-12">
+                                <p style="padding: 10px; color: white; font-size: 20px;">
+                                    Are you sure that you want to <b style="color: red;">delete</b> this user <br>
+                                    <span>
+                                        {{user.username}}
+                                    </span>
+                                </p>
+                            </div>
+                            <div class="col-md-12">
+                                <div>
+                                    <button>Yes</button>
+                                </div>
+
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>

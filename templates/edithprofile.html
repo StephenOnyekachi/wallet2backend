@@ -1,0 +1,117 @@
+
+{% load static %}
+{% static "medians" as baseUrl %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>profile</title>
+
+    <link rel="icon" href="{% static 'img/005.jpg' %}">
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'font-awesome/css/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/css.css' %}">
+    <link rel="stylesheet" href="{% static 'css/media.css' %}">
+    <link rel="stylesheet" href="{% static 'js/jquery-3.7.0.js' %}">
+    <link rel="stylesheet" href="{% static 'js/js.js' %}">
+
+</head>
+<body>
+    <div class="">
+        <div class="col-md-12 dashboard">
+            <div class="col-md-12">
+                <div class="col-md-6">
+                    <h1>
+                        Welcome {{request.user}}
+                    </h1>
+                    <div>
+                        <a href="{% url 'dashboard' %}" style="color: white; border: 1px solid gold; border-radius: 5px; padding: 5px;">
+                            <i class="fa fa-mail-reply"> Back</i>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-6 picture">
+                    {% if user.picture %}
+                        <a href="">
+                            <img src="{{user.picture.url}}" alt="">
+                        </a>
+                    {% else %}
+                        <a href="">
+                            <img src="{% static 'img/005.jpg' %}" alt="">
+                        </a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-12 profilebody">
+            <div class="col-md-12 profilebody2">
+                <form action="" METHOD="POST" enctype="multipart/form-data">
+
+                    {% csrf_token %}
+                    <div class="user">
+                        <span>
+                            {{user.email}}
+                        </span><br>
+                        <p style="color:gold">{{user.email}}</p>
+                    </div>
+                    <div class="user">
+                        <span>
+                            {{user.number}}
+                        </span><br>
+                        <p style="color:gold">{{user.number}}</p>
+                    </div>
+                    <div class="user">
+                        <span>
+                            {{user.city}}
+                        </span><br>
+                        <input type="text" placeholder="city" name="city" value="{{user.city}}">
+                    </div>
+                    <div class="user">
+                        <span>
+                            <p style="color:gold">{{user.address}}
+                        </span><br>
+                        <input type="text" placeholder="address" name="address" value="{{user.address}}">
+                    </div>
+                    <div class="user">
+                        <span>
+                            {{user.pin}}
+                        </span><br>
+                        <input type="text" placeholder="add pin or change pin" name="pin" value="{{user.pin}}">
+                    </div>
+                    <div class="user">
+                        <span>
+                            {{user.gender}}
+                        </span><br>
+                        <input type="text" placeholder="your gender" name="gender" value="{{user.gender}}">
+                    </div>
+                    <div class="user">
+                        <span>
+
+                            <div class="col-md-6 picture">
+                                {% if user.picture %}
+                                    <a href="">
+                                        <img src="{{user.picture.url}}" alt="" style="width:50px;border-radius:50%;margin:2px;">
+                                    </a>
+                                {% else %}
+                                    <a href="">
+                                        <img src="{% static 'img/005.jpg' %}" alt="" style="width:50px;border-radius:50%;margin:5px;">
+                                    </a>
+                                {% endif %}
+                            </div>
+
+                        </span><br>
+                        <input type="file" placeholder="add profile picture" name="picture">
+                    </div>
+                    <div class="user">
+                        <button>Save</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

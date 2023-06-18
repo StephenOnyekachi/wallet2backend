@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>admin</title>
+
+    <link rel="icon" href="static/img/005.jpg">
+    <link rel="stylesheet" href="static/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="static/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="static/css/css.css">
+    <link rel="stylesheet" href="static/css/media.css">
+    <link rel="stylesheet" href="static/js/jquery-3.7.0.js">
+    <link rel="stylesheet" href="static/js/js.js">
+
+    <style>
+        .box{
+            border: 1px solid gold;
+            border-radius: 5px;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="">
+        <div class="col-md-12 dashboard">
+            <div class="col-md-12">
+                <div class="col-md-6">
+                    <h1>
+                        Welcome {{request.user}}
+                    </h1>
+                </div>
+                <div class="col-md-6">
+                    <div class="logout">
+                        <a href="{% url 'user_logout' %}">
+                            <i class="fa fa-power-off">
+                                Log Out
+                            </i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-12 dashboardbody">
+            <div class="col-md-12 dashboardbody1">
+                <div class="col-md-6 boxs">
+                    <div class="box">
+                        <a href="{% url 'users' %}">
+                            <h3>Users</h3>
+                            <i class="fa fa-users"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-6 boxs">
+                    <div class="box">
+                        <a href="{% url 'messages' %}">
+                            <h3>Message</h3>
+                            <i class="fa fa-envelope"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-6 boxs">
+                    <div class="box">
+                        <a href="{% url 'walletedit' %}">
+                            <h3>Edith Wallet</h3>
+                            <i class="fa fa-suitcase"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-6 boxs">
+                    <div class="box">
+                        <a href="{% url 'paymentedit' %}">
+                            <h3>Edith Payment</h3>
+                            <i class="fa fa-fax"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,73 @@
+
+{% load static %}
+{% static "medians" as baseUrl %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>users</title>
+
+    <link rel="icon" href="{% static 'static/img/005.jpg' %}">
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'font-awesome/css/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/css.css' %}">
+    <link rel="stylesheet" href="{% static 'css/media.css' %}">
+    <link rel="stylesheet" href="{% static 'js/jquery-3.7.0.js' %}">
+    <link rel="stylesheet" href="{% static 'js/js.js' %}">
+
+</head>
+<body>
+    <div class="">
+        <div class="col-md-12 dashboard">
+            <div class="col-md-12">
+                <div class="col-md-6">
+                    <h1>
+                        Welcome {{request.users}}
+                    </h1>
+                    <div>
+                        <a href="{% url 'adminpage' %}" style="color: white; border: 1px solid gold; border-radius: 5px; padding: 5px;">
+                            <i class="fa fa-mail-reply"> Back</i>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-6 picture">
+                    <p style="color: white;">
+                        Total Users
+                    </p>
+                    <p style="color: green; font-size: 2rem;">
+                        {{users.count}}
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-12 profilebody">
+            <div class="col-md-12 profilebody1">
+                {% for users in users %}
+                    <div class="user">
+                        <div style="float: right; color: gold;margin:5px;">
+                            <span>
+                                <a href="{% url 'message' %}" style="color: gold;">
+                                    Message
+                                    <i class="fa fa-envelope-o"></i>
+                                </a>
+                            </span>
+                        </div>
+                        <div style="float: right; color: gold;margin:5px;">
+                            Total Money <span style="color: white;"> {{users.total}} </span>
+                        </div>
+                        <a href="{% url 'user' users.id %}">
+                            <h3>
+                                {{users.username}}
+                            </h3>
+                        </a>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</body>
+</html>

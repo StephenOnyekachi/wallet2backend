@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>signup</title>
+
+    <link rel="icon" href="static/img/005.jpg">
+    <link rel="stylesheet" href="static/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="static/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="static/css/css.css">
+    <link rel="stylesheet" href="static/css/media.css">
+    <link rel="stylesheet" href="static/js/jquery-3.7.0.js">
+    <link rel="stylesheet" href="static/js/js.js">
+
+
+    <style>
+        .signup{
+            background-image: url("static/img/006.png");
+            height: 120vh;
+            background-size: cover;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="col-md-12 signup">
+        <div class="col-md-12 signupbg">
+            <div class="col-md-12 containt">
+                <h2>
+                    fill in the spaces
+                </h2>
+                <div class="col-md-12">
+                    <form method="POST">
+
+                        {% csrf_token %}
+
+                        <div class="col-md-12">
+                            <label for="">
+                                Country
+                            </label>
+                            <br>
+                            <input type="text" placeholder="enter your country" name="country">
+                        </div>
+                        <div class="col-md-12">
+                            <label for="">
+                                City
+                            </label>
+                            <br>
+                            <input type="text" placeholder="enter your City" name="city">
+                        </div>
+                        <div class="col-md-12">
+                            <label for="">
+                                Address
+                            </label>
+                            <br>
+                            <input type="number" placeholder="enter your address" name="address">
+                        </div>
+                        <div class="col-md-12">
+                            <label for="">
+                                Gender
+                            </label>
+                            <br>
+                            <input type="number" placeholder="enter your gender" name="gender">
+                        </div>
+                        <div class="col-md-12">
+                            <label for="">
+                                Occupation
+                            </label>
+                            <br>
+                            <input type="number" placeholder="enter your occupation" name="occupation">
+                        </div>
+                        <div class="col-md-12">
+                            <button>Next</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
