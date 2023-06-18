@@ -14,7 +14,7 @@ urlpatterns = [
     path('deposit', views.deposit, name='deposit'),
     path('messagedelete/<int:pk>/', views.messagedelete, name='messagedelete'),
     path('message', views.message, name='message'),
-    path('messages', views.messages, name='messages'),
+    path('messagesView', views.messages, name='messages'),
     path('paymentdelete/<int:pk>/', views.paymentdelete, name='paymentdelete'),
     path('paymentedit', views.paymentedit, name='paymentedit'),
 
